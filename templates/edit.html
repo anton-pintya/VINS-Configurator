@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configure {{ filename }}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/edit.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Configure {{ filename }}</h1>
+        <form method="POST">
+            {% for key, value in content.items() %}
+                <div class="form-group">
+                    <label for="{{ key }}">{{ key }}</label>
+                    <select name="{{ key }}" id="{{ key }}">
+                        {% for option in value %}
+                            <option value="{{ option }}" {% if default['current'][key] == option %}selected{% endif %}>{{ option }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            {% endfor %}
+            <button type="submit">Save</button>
+            <a href="{{ url_for('index') }}">
+                <button type="button">Back</button>
+            </a>
+        </form>
+    </div>
+</body>
+</html>

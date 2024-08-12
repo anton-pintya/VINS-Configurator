@@ -1,0 +1,24 @@
+%YAML 1.2
+---
+
+
+current:
+  # Dataset name from the DATASETS list
+  dataset: "{{ dataset }}"
+  sequence: "{{ sequence }}"
+
+
+# preprocessing:
+#   kitti:
+#   tum_rgbd:
+#   euroc_mav:
+
+
+datasets:
+  kitti:
+    resolution: [1271, 376]
+    fps: 10
+
+  euroc_mav:
+    resolution: [752, 480]
+    fps: 20
